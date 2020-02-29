@@ -1,0 +1,26 @@
+Hash: 28803235df5371c54955
+Version: webpack 4.41.6
+Time: 2352ms
+Built at: 02/28/2020 4:38:59 PM
+                             Asset      Size  Chunks                         Chunk Names
+about-page.js?28803235df5371c54955  5.49 KiB       1  [emitted] [immutable]  about-page
+ home-page.js?28803235df5371c54955  5.27 KiB       2  [emitted] [immutable]  home-page
+                       manifest.js   116 KiB       0  [emitted]              manifest
+Entrypoint home-page = manifest.js home-page.js?28803235df5371c54955
+Entrypoint about-page = manifest.js about-page.js?28803235df5371c54955
+ [0] ./node_modules/react/index.js 190 bytes {0} [built]
+ [1] ./node_modules/react-dom/index.js 1.33 KiB {0} [built]
+ [2] ./node_modules/object-assign/index.js 2.06 KiB {0} [built]
+ [3] multi ./client/home-page.jsx 28 bytes {2} [built]
+ [4] ./node_modules/react/cjs/react.production.min.js 6.67 KiB {0} [built]
+ [5] ./node_modules/react-dom/cjs/react-dom.production.min.js 106 KiB {0} [built]
+ [6] ./node_modules/scheduler/index.js 198 bytes {0} [built]
+ [7] ./node_modules/scheduler/cjs/scheduler.production.min.js 4.88 KiB {0} [built]
+ [8] (webpack)/buildin/global.js 472 bytes {0} [built]
+ [9] multi ./client/about-page.jsx 28 bytes {1} [built]
+[10] ./client/home-page.jsx + 1 modules 6 KiB {2} [built]
+     | ./client/home-page.jsx 3.44 KiB [built]
+     | ./client/pages/home/index.jsx 2.56 KiB [built]
+[11] ./client/about-page.jsx + 1 modules 6.25 KiB {1} [built]
+     | ./client/about-page.jsx 3.33 KiB [built]
+     | ./client/pages/about/index.jsx 2.91 KiB [built]

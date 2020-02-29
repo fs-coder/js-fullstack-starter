@@ -1,0 +1,30 @@
+{
+  "name": "egg-react-ssr-starter",
+  "version": "1.0.0",
+  "description": "A quick starter for server-rendered React apps",
+  "scripts": {
+    "start": "beidou start --workers=1 --port=1024",
+    "debug": "beidou debug",
+    "stop": "beidou stop",
+    "dev": "beidou dev --port=1024",
+    "build": "beidou build",
+    "build:node": "beidou build --target=node",
+    "lint": "eslint --fix --ext .jsx,.js app client config"
+  },
+  "dependencies": {
+    "antd": "^4.0.0",
+    "babel-polyfill": "^6.26.0",
+    "beidou": "^2.2.1",
+    "beidou-cli": "^2.1.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-beidou": "^2.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.5.1",
+    "react-hot-loader": "^4.3.12"
+  }
+}
