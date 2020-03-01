@@ -1,14 +1,15 @@
 {
   "name": "egg-react-ssr-starter",
   "version": "1.0.0",
-  "description": "A quick starter for server-rendered React apps",
+  "description": "A Minimal JavaScript Full Stack Boilerplate.",
   "scripts": {
     "start": "beidou start --workers=1 --port=1024",
     "debug": "beidou debug",
     "stop": "beidou stop",
     "dev": "beidou dev --port=1024",
     "build": "rimraf build && beidou build",
-    "build:node": "beidou build --target=node"
+    "build:node": "beidou build --target=node",
+    "test": "jest --no-color --no-cache --runInBand"
   },
   "dependencies": {
     "antd": "^4.0.0",
@@ -23,7 +24,10 @@
     "@babel/preset-env": "^7.8.6",
     "babel-jest": "^25.1.0",
     "babel-plugin-import": "^1.13.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",
+    "jest-puppeteer": "^4.4.0",
     "prettier": "^1.19.1",
     "react-hot-loader": "^4.3.12",
     "rimraf": "^3.0.2"

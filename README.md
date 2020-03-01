@@ -1,15 +1,16 @@
-# egg-react-ssr-starter
+A Minimal JavaScript Full Stack Boilerplate.
 
-## Install
+## Features
 
-```bash
-$ yarn install
-```
-
-### Start
-
-```bash
-$ npm start
-```
-
-then navigate to [http://127.0.0.1:1024/](http://127.0.0.1:1024/)
+- ✔︎ High performance
+- ✔︎ Search engine optimization(SEO)
+- ✔︎ ES6/ES7/ES8 supported
+- ✔︎ SCSS/Sass with autoprefixer supported
+- ✔︎ Unit test supported
+- ✔︎ ENT-to-END test supported
+- ✔︎ Redux supported
+- ✔︎ React Hot Reload
+- ✔︎ MySQL supported
+- ✔︎ Restful API
+- ✔︎ i18n supported
+- ✔︎ Free performance analysis tools (alinode)
