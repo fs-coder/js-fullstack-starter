@@ -1,3 +1,3 @@
 module.exports = {
-  Hi: '你好',
+  Hi: "你好"
 };

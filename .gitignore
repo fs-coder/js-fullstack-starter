@@ -25,3 +25,4 @@ track
 .run/
 .vscode/
 !.run/isomorphic
+.stats

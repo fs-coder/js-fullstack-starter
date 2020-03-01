@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Home from './pages/home';
+import React from "react";
+import ReactDOM from "react-dom";
+import Home from "./pages/home/Home";
 
 export default class HomePage extends React.Component {
-  static doctype = '<!DOCTYPE html>';
+  static doctype = "<!DOCTYPE html>";
 
   static getPartial(props) {
     // [ 'ctx', 'request', 'helper', 'gettext', '__', 'title', 'Render', 'renderElement', 'renderElementToStream' ]
     return {
-      html: <Home />,
+      html: <Home />
     };
   }
 
@@ -22,12 +22,13 @@ export default class HomePage extends React.Component {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="description" content="" />
           <title>{title}</title>
-          <link rel="stylesheet" href={helper.asset('home-page.css')} />
+          <link rel="stylesheet" href={helper.asset("manifest.css")} />
+          <link rel="stylesheet" href={helper.asset("HomePage.css")} />
         </head>
         <body>
           <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
-          <script src={helper.asset('manifest.js')} />
-          <script src={helper.asset('home-page.js')} />
+          <script src={helper.asset("manifest.js")} />
+          <script src={helper.asset("HomePage.js")} />
         </body>
       </html>
     );
@@ -35,6 +36,6 @@ export default class HomePage extends React.Component {
 }
 
 if (__CLIENT__) {
-  const mountEl = document.getElementById('container');
+  const mountEl = document.getElementById("container");
   ReactDOM.hydrate(<Home />, mountEl);
 }

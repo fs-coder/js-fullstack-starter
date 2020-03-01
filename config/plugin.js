@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
 exports.i18n = {
   enable: true,
-  package: 'egg-i18n',
+  package: "egg-i18n"
 };
