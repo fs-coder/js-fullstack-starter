@@ -1,7 +1,7 @@
 {
-  "name": "egg-react-ssr-starter",
+  "name": "js-fullstack-starter",
   "version": "1.0.0",
-  "description": "A Minimal JavaScript Full Stack Boilerplate.",
+  "description": "基于 React, Beidou 等技术的 JS 全栈开发项目模板",
   "scripts": {
     "start": "beidou start --workers=1 --port=1024",
     "debug": "beidou debug",

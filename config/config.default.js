@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = appInfo => {
   const config = {};
 
-  config.keys = `${appInfo.name}_egg-react-ssr-starter`;
+  config.keys = `${appInfo.name}_js-fullstack-starter`;
 
   config.static = {
     dir: [
