@@ -10,7 +10,6 @@ app/proxy-class
 app/proxy-enums
 assembly
 assembly/
-assets
 build/*
 config/serverEnv
 config/env
