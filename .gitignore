@@ -26,3 +26,6 @@ track
 .vscode/
 !.run/isomorphic
 .stats
+
+config/config.local.js
+config/config.prod.js

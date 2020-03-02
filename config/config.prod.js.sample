@@ -1,0 +1,13 @@
+"use strict";
+
+module.exports = {
+  mysql: {
+    client: {
+      host: "mysql.com",
+      port: "3306",
+      user: "test_user",
+      password: "test_password",
+      database: "test"
+    }
+  }
+};
