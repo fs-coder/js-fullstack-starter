@@ -1,5 +1,6 @@
 import React from "react";
-import { Row, Col, Button, Input, Card, message } from "antd";
+import { Row, Col, Button, Input, Card, Spin, message } from "antd";
+import axios from "axios";
 import "./style.less";
 
 const { TextArea } = Input;
@@ -8,55 +9,66 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
+      initializing: true,
       name: "",
       message: "",
-      comments: this.getCommentsFromLS()
+      comments: []
     };
+  }
+
+  async componentDidMount() {
+    await this.getMessages();
+    await this.setState({ initializing: false });
   }
 
   setMessage = message => this.setState({ message });
 
   setName = name => this.setState({ name });
 
-  saveCommentsToLS = comments => {
-    try {
-      window.localStorage.setItem("COMMEMTS", JSON.stringify(comments));
-    } catch (e) {
-      message.error("An error occurred while caching data.");
+  setLoading = loading => this.setState({ loading });
+
+  getMessages = async () => {
+    const res = await axios.get("/api/message-board");
+    if (res.status !== 200) {
+      message.error("An unexpected error has occurred.");
+      return;
     }
+    if (res.data.code !== 200) {
+      message.error(res.data.msg);
+      return;
+    }
+    this.setState({ comments: res.data.data });
   };
 
-  getCommentsFromLS = () => {
-    let comments = [];
+  onSubmit = async () => {
+    const { name } = this.state;
+    await this.setLoading(true);
     try {
-      const str = window.localStorage.getItem("COMMEMTS");
-      if (str) {
-        comments = JSON.parse(str);
+      const res = await axios.post("/api/message-board", {
+        name,
+        message: this.state.message
+      });
+      if (res.status === 200 && res.data.code === 200) {
+        message.success(res.data.msg);
+        await this.setState({
+          loading: false,
+          name: "",
+          message: ""
+        });
+        await this.getMessages();
+      } else {
+        this.setLoading(false);
+        message.error(res.data.msg);
       }
     } catch (e) {
-      message.error("An error occurred while get cached data.");
+      this.setLoading(false);
+      message.error("An unexpected error has occurred.");
     }
-    return comments;
-  };
-
-  onSubmit = () => {
-    const { name, message, comments } = this.state;
-    const comment = {
-      name,
-      message,
-      date: +new Date()
-    };
-    const newComments = [comment, ...comments];
-    this.saveCommentsToLS(newComments);
-    this.setState({
-      name: "",
-      message: "",
-      comments: newComments
-    });
   };
 
   render() {
-    const { name, message, comments } = this.state;
+    const { loading, initializing, name, message, comments } = this.state;
     return (
       <div className="home-page">
         <Row>
@@ -71,7 +83,7 @@ export default class Home extends React.Component {
               <div className="board__row">
                 <TextArea
                   id="T_Message"
-                  rows={8}
+                  rows={4}
                   placeholder="Your Message"
                   value={message}
                   onChange={e => this.setMessage(e.target.value)}
@@ -79,7 +91,13 @@ export default class Home extends React.Component {
                 />
               </div>
               <div className="board__actions">
-                <Button disabled={!message.length} id="T_SubmitBtn" type="primary" onClick={this.onSubmit}>
+                <Button
+                  disabled={!message.length}
+                  loading={loading}
+                  id="T_SubmitBtn"
+                  type="primary"
+                  onClick={this.onSubmit}
+                >
                   Submit
                 </Button>
               </div>
@@ -87,20 +105,22 @@ export default class Home extends React.Component {
 
             <div className="comment">
               <h2 className="comment__title">Comments List</h2>
-              {comments.map((item, i) => (
-                <Card
-                  key={i}
-                  size="small"
-                  title={
-                    <span>
-                      <b>{item.name}</b> Said:
-                    </span>
-                  }
-                  extra={item.date}
-                >
-                  {item.message}
-                </Card>
-              ))}
+              <Spin spinning={initializing}>
+                {comments.map((item, i) => (
+                  <Card
+                    key={i}
+                    size="small"
+                    title={
+                      <span>
+                        <b>{item.name}</b> Said:
+                      </span>
+                    }
+                    extra={item.createAt}
+                  >
+                    {item.message}
+                  </Card>
+                ))}
+              </Spin>
             </div>
           </Col>
         </Row>
