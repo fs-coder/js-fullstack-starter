@@ -1,13 +1,21 @@
 "use strict";
 
-module.exports = {
-  mysql: {
-    client: {
-      host: "mysql.com",
-      port: "3306",
-      user: "test_user",
-      password: "test_password",
-      database: "test"
-    }
+exports.mysql = {
+  client: {
+    host: "your host",
+    port: "your port",
+    user: "your user",
+    password: "your password",
+    database: "your database"
   }
+};
+
+exports.security = {
+  csrf: false
+};
+
+exports.alinode = {
+  enable: true,
+  appid: "your appid",
+  secret: "your secret"
 };

@@ -2,10 +2,15 @@
 
 exports.mysql = {
   enable: true,
-  package: 'egg-mysql',
+  package: "egg-mysql"
 };
 
 exports.validate = {
   enable: true,
-  package: 'egg-validate',
+  package: "egg-validate"
+};
+
+exports.alinode = {
+  enable: true,
+  package: "egg-alinode"
 };
