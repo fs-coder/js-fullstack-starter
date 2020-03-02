@@ -43,5 +43,11 @@ module.exports = appInfo => {
     cookieMaxAge: "1y"
   };
 
+  // https://github.com/node-modules/parameter
+  exports.validate = {
+    // convert: false,
+    // validateRoot: false,
+  };
+
   return config;
 };

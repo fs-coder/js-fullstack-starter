@@ -44,15 +44,27 @@ module.exports = app => {
 
     async create() {
       const { ctx } = this;
-      const { name = "", message = "" } = ctx.request.body;
-      if (name.length > 20 || message.length > 255) {
+      const rules = {
+        name: {
+          type: "string",
+          max: 20
+        },
+        message: {
+          type: "string",
+          max: 255,
+          required: true
+        }
+      };
+      const errors = app.validator.validate(rules, ctx.request.body);
+      if (errors && errors.length) {
         ctx.body = {
           code: 500,
-          msg: "Parameter check error."
+          msg: `Field ${errors[0].field} got error: ${errors[0].message}`
         };
         return;
       }
 
+      const { name = "", message = "" } = ctx.request.body;
       try {
         const success = await ctx.service.messageBoard.create({ name, message });
         ctx.status = 200;

@@ -63,7 +63,7 @@ export default class Home extends React.Component {
       }
     } catch (e) {
       this.setLoading(false);
-      message.error("An unexpected error has occurred.");
+      message.error(e.message);
     }
   };
 
