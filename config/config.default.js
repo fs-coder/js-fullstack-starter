@@ -34,5 +34,14 @@ module.exports = appInfo => {
     pageUrl: "/404.html"
   };
 
+  // https://github.com/eggjs/egg-i18n
+  config.i18n = {
+    defaultLocale: "zh-CN",
+    queryField: "locale",
+    cookieField: "locale",
+    cookieDomain: "",
+    cookieMaxAge: "1y"
+  };
+
   return config;
 };

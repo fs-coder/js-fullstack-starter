@@ -1,3 +1,3 @@
-module.exports = {
+export default {
   Hi: "你好"
 };

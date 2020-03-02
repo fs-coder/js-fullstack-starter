@@ -5,8 +5,7 @@ import Home from "./pages/home/Home";
 export default class HomePage extends React.Component {
   static doctype = "<!DOCTYPE html>";
 
-  static getPartial(props) {
-    // [ 'ctx', 'request', 'helper', 'gettext', '__', 'title', 'Render', 'renderElement', 'renderElementToStream' ]
+  static getPartial({ ctx }) {
     return {
       html: <Home />
     };
