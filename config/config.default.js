@@ -44,13 +44,13 @@ module.exports = appInfo => {
   };
 
   // https://github.com/node-modules/parameter
-  exports.validate = {
+  config.validate = {
     // convert: false,
     // validateRoot: false,
   };
 
   // https://github.com/eggjs/egg-alinode
-  exports.alinode = {
+  config.alinode = {
     enable: true,
     appid: "83897",
     secret: "f2b255a6011281c600f99fc01344474a79d09f36"
