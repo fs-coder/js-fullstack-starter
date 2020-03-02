@@ -9,7 +9,8 @@
     "dev": "beidou dev --port=1025",
     "build": "rimraf build && beidou build",
     "build:node": "beidou build --target=node",
-    "test": "jest --no-color --no-cache --runInBand"
+    "test": "jest --no-color --no-cache --runInBand",
+    "restart": "npm run stop && npm run build && npm run start"
   },
   "dependencies": {
     "antd": "^4.0.0",
