@@ -28,7 +28,7 @@ describe("Message Board", function() {
       await page.waitFor(1000);
 
       const title = await page.$eval("#T_Title", txt => txt.textContent);
-      expect(title).toBe("A simple message board");
+      expect(title).toBe("简易留言板");
     },
     caseTimeout
   );

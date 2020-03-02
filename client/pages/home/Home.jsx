@@ -75,19 +75,32 @@ export default class Home extends React.Component {
           <Col md={{ span: 12, offset: 6 }} sm={{ span: 24 }} xs={{ span: 24 }}>
             <div className="board">
               <h1 id="T_Title" className="board__title">
-                A simple message board
+                简易留言板
               </h1>
+              <p>
+                <span>此网页是一份示例代码, 用于展示 JavaScript 在全栈开发中的能力, 源代码托管在 </span>
+                <a target="_blank" href="https://github.com/rmlzy/js-fullstack-starter">
+                  Github
+                </a>
+                <span>.</span>
+              </p>
               <div className="board__row">
-                <Input id="T_Name" placeholder="Your Name" value={name} onChange={e => this.setName(e.target.value)} />
+                <Input
+                  id="T_Name"
+                  placeholder="你的姓名 (最长20个字符)"
+                  value={name}
+                  onChange={e => this.setName(e.target.value)}
+                  maxLength={20}
+                />
               </div>
               <div className="board__row">
                 <TextArea
                   id="T_Message"
                   rows={4}
-                  placeholder="Your Message"
+                  placeholder="随便写点什么 (最长255个字符)"
                   value={message}
                   onChange={e => this.setMessage(e.target.value)}
-                  maxLength={256}
+                  maxLength={255}
                 />
               </div>
               <div className="board__actions">
@@ -98,13 +111,13 @@ export default class Home extends React.Component {
                   type="primary"
                   onClick={this.onSubmit}
                 >
-                  Submit
+                  提交
                 </Button>
               </div>
             </div>
 
             <div className="comment">
-              <h2 className="comment__title">Comments List</h2>
+              <h2 className="comment__title">留言列表</h2>
               <Spin spinning={initializing}>
                 {comments.map((item, i) => (
                   <Card
@@ -112,7 +125,7 @@ export default class Home extends React.Component {
                     size="small"
                     title={
                       <span>
-                        <b>{item.name}</b> Said:
+                        <b>{item.name}</b> 说:
                       </span>
                     }
                     extra={item.createAt}

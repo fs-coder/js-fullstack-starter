@@ -4,7 +4,8 @@ module.exports = app => {
   class HomeController extends app.Controller {
     async index() {
       await this.ctx.render("HomePage.jsx", {
-        title: "A Simple Message Board"
+        title: "简易留言板",
+        description: "基于 React, Beidou 等技术的 JS 全栈开发项目模板"
       });
     }
 
@@ -16,9 +17,9 @@ module.exports = app => {
         if (comments) {
           const data = comments.map(item => ({
             id: item.id,
-            name: item.name || "Anonymous",
+            name: item.name || "匿名",
             message: item.message,
-            createAt: item.created_at ? dayjs(item.created_at).format("YYYY-MM-DD hh:mm:ss") : "Unknown"
+            createAt: item.created_at ? dayjs(item.created_at).format("YYYY年MM月DD日 hh时mm分ss秒") : "未知"
           }));
           ctx.body = {
             code: 200,
@@ -43,7 +44,15 @@ module.exports = app => {
 
     async create() {
       const { ctx } = this;
-      const { name, message } = ctx.request.body;
+      const { name = "", message = "" } = ctx.request.body;
+      if (name.length > 20 || message.length > 255) {
+        ctx.body = {
+          code: 500,
+          msg: "Parameter check error."
+        };
+        return;
+      }
+
       try {
         const success = await ctx.service.messageBoard.create({ name, message });
         ctx.status = 200;
