@@ -24,7 +24,7 @@ describe("Message Board", function() {
   test(
     "Should render title correctly",
     async () => {
-      await page.goto("http://127.0.0.1:1024", { waitUntil: "networkidle0" });
+      await page.goto("http://127.0.0.1:1025", { waitUntil: "networkidle0" });
       await page.waitFor(1000);
 
       const title = await page.$eval("#T_Title", txt => txt.textContent);
@@ -36,7 +36,7 @@ describe("Message Board", function() {
   test(
     "Should submit message correctly",
     async () => {
-      await page.goto("http://127.0.0.1:1024", { waitUntil: "networkidle0" });
+      await page.goto("http://127.0.0.1:1025", { waitUntil: "networkidle0" });
       await page.waitFor(1000);
 
       // Mock input and submit

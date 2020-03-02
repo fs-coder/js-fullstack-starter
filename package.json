@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "基于 React, Beidou 等技术的 JS 全栈开发项目模板",
   "scripts": {
-    "start": "beidou start --workers=1 --port=1024",
+    "start": "beidou start --workers=1 --port=1025",
     "debug": "beidou debug",
     "stop": "beidou stop",
     "dev": "beidou dev --port=1024",
