@@ -1,8 +1,8 @@
 # js-fullstack-starter
 
-基于 [React](https://github.com/facebook/react), [beidou](https://github.com/alibaba/beidou) 等技术的 JS 全栈开发项目模板
+基于 [React](https://github.com/facebook/react), [beidou](https://github.com/alibaba/beidou) 等技术的 JS 全栈开发项目模板, 点击访问 [在线 Demo](http://js-fullstack.poppython.com/)
 
-[在线Demo](http://js-fullstack.poppython.com/)
+**⚠️开发中...**
 
 ## 特性
 
@@ -19,5 +19,5 @@
 - ✔︎ 支持多语言配置
 - ✔︎ 集成了 Ant Design UI 框架
 - ✔︎ 集成了免费的性能分析工具 - alinode
-- ✔︎ 内置一个简单的留言板示例
-- 正在添加更多功能...
+- ✔︎ 内置一个简单的[留言板示例](http://js-fullstack.poppython.com/)
+
