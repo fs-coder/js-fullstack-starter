@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "基于 React, Beidou 等技术的 JS 全栈开发项目模板",
   "scripts": {
-    "start": "EGG_SERVER_ENV=prod ENABLE_NODE_LOG=yes beidou start --daemon --workers=1 --port=1025",
+    "start": "EGG_SERVER_ENV=prod ENABLE_NODE_LOG=yes beidou start --daemon --title=js-fullstack-starter --workers=1 --port=1025",
     "debug": "beidou debug",
-    "stop": "beidou stop",
+    "stop": "beidou stop --title=js-fullstack-starter",
     "dev": "beidou dev --port=1025",
     "build": "rimraf build && beidou build",
     "build:node": "beidou build --target=node",
