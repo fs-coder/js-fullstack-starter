@@ -1,18 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Home from "./pages/home/Home";
 
-export default class HomePage extends React.Component {
+export class Template extends React.Component {
   static doctype = "<!DOCTYPE html>";
 
-  static getPartial({ ctx }) {
-    return {
-      html: <Home />
-    };
-  }
-
   render() {
-    const { html, helper, title, description } = this.props;
+    const { title, description, asset, html, helper } = this.props;
     return (
       <html>
         <head>
@@ -25,19 +18,21 @@ export default class HomePage extends React.Component {
           <meta name="description" content={description} />
           <title>{title}</title>
           <link rel="stylesheet" href={helper.asset("manifest.css")} />
-          <link rel="stylesheet" href={helper.asset("HomePage.css")} />
+          <link rel="stylesheet" href={helper.asset(`${asset}.css`)} />
         </head>
         <body>
-          <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
+          <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
           <script src={helper.asset("manifest.js")} />
-          <script src={helper.asset("HomePage.js")} />
+          <script src={helper.asset(`${asset}.js`)} />
         </body>
       </html>
     );
   }
 }
 
-if (__CLIENT__) {
-  const mountEl = document.getElementById("container");
-  ReactDOM.hydrate(<Home />, mountEl);
-}
+export const render = App => {
+  if (__CLIENT__) {
+    const mountEl = document.getElementById("root");
+    ReactDOM.render(<App />, mountEl);
+  }
+};

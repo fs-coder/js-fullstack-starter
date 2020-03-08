@@ -3,7 +3,7 @@ const dayjs = require("dayjs");
 module.exports = app => {
   class HomeController extends app.Controller {
     async index() {
-      await this.ctx.render("HomePage.jsx", {
+      await this.ctx.render("home/index.jsx", {
         title: "简易留言板",
         description: "基于 React, Beidou 等技术的 JS 全栈开发项目模板"
       });
