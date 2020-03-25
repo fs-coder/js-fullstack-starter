@@ -20,12 +20,6 @@ module.exports = appInfo => {
     ]
   };
 
-  config.webpack = {
-    custom: {
-      configPath: path.join(__dirname, "./webpack.config.js")
-    }
-  };
-
   config.onerror = {
     errorPageUrl: "/error.html"
   };
